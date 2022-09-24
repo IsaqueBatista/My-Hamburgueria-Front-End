@@ -17,11 +17,9 @@ function App() {
 
   const addNewRequest = async() => {
 
-      const data = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value,})
+      const {data: newPedido} = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value,})
 
-      console.log(data)
-
-    // setUsers([...users,{ id: Math.random(), name: inputName.current.value, pedido: inputPedido.current.value }])
+    setUsers([...users, newPedido])
   };
 
   function editPedido(userId) {
