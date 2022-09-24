@@ -17,6 +17,16 @@ function App() {
     setUsers([...users,{ id: Math.random(), name: inputName.current.value, pedido: inputPedido.current.value }])
   };
 
+  function editPedido(userId) {
+    // const newEdit = users.find(user => user.id === userId);
+    // setUsers(newEdit)
+  };
+
+  function deletePedido(userId) {
+     const newDelete = users.filter(user => user.id !== userId)
+     setUsers(newDelete)
+  };
+
 
   return (
     <Container>
@@ -45,8 +55,8 @@ function App() {
               </DivPedidoAndName>
 
               <DivTrashPen>
-                <button> <img alt="imagem-caneca" src={Pen} /></button>
-                <button> <img alt="imagem-lixeira" src={Trash} /></button>
+                <button onClick={() => editPedido(user.id)}> <img alt="imagem-caneca" src={Pen} /></button>
+                <button onClick={() => deletePedido(user.id)}> <img alt="imagem-lixeira" src={Trash} /></button>
               </DivTrashPen>
 
             </User>
