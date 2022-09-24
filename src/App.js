@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Hamburguer from './assets/hamburguer.png'
 import Trash from './assets/trash.svg'
@@ -10,20 +10,13 @@ import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User, 
 function App() {
   // Esse é um estado no React.  
   const [users, setUsers] = useState([]);
-  const [pedido, setPedido] = useState();
-  const [name, setName] = useState();
-
+  const inputName = useRef();
+  const inputPedido = useRef();
 
   function addNewRequest() {
-    setUsers([...users,{ id: Math.random(), name, pedido }])
+    setUsers([...users,{ id: Math.random(), name: inputName.current.value, pedido: inputPedido.current.value }])
   };
 
-  function chanceInputPedido(event) {
-    setPedido(event.target.value)
-  }
-  function changeInputName(event) {
-    setName(event.target.value)
-  }
 
   return (
     <Container>
@@ -34,10 +27,10 @@ function App() {
         <H1>Faça seu Pedido!</H1>
 
         <InputLabel>Pedido</InputLabel>
-        <Input onChange={chanceInputPedido} placeholder="Digite seu Pedido" />
+        <Input ref={inputPedido} placeholder="Digite seu Pedido" />
 
         <InputLabel>Nome do Cliente</InputLabel>
-        <Input onChange={changeInputName} placeholder="Nome do Cliente" />
+        <Input ref={inputName} placeholder="Nome do Cliente" />
 
         <Button onClick={addNewRequest}>Realizar Pedido</Button>
 
