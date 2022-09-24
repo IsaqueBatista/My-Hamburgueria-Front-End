@@ -1,24 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import Hamburguer from './assets/hamburguer.png'
+import Trash from './assets/trash.svg'
+import Pen from './assets/pen.png'
+
+import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User, DivPedidoAndName, DivTrashPen } from "./styles";
+
 
 function App() {
+  // Esse é um estado no React.  
+  const [users, setUsers] = useState([])
+
+  function addNewRequest() {
+    setUsers()
+  };
+
+  function chanceInputPedido(event) {
+    console.log(event.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Image alt="logo-hamburguer" src={Hamburguer} />
+
+      <ContainerItens>
+
+        <H1>Faça seu Pedido!</H1>
+
+        <InputLabel>Pedido</InputLabel>
+        <Input onChange={chanceInputPedido} placeholder="Digite seu Pedido" />
+
+        <InputLabel>Nome do Cliente</InputLabel>
+        <Input placeholder="Nome do Cliente" />
+
+        <Button onClick={addNewRequest}>Realizar Pedido</Button>
+
+        <ul>
+          {users.map((user) => (
+
+            <User key={user.id}>
+
+              <DivPedidoAndName>
+                <p>{user.pedido}</p>
+                <p>{user.name}</p>
+              </DivPedidoAndName>
+
+              <DivTrashPen>
+                <button> <img alt="imagem-caneca" src={Pen} /></button>
+                <button> <img alt="imagem-lixeira" src={Trash} /></button>
+              </DivTrashPen>
+
+            </User>
+          ))}
+        </ul>
+
+      </ContainerItens>
+    </Container>
   );
 }
 
