@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 
+import axios from 'axios';
+
 import Hamburguer from './assets/hamburguer.png'
 import Trash from './assets/trash.svg'
 import Pen from './assets/pen.png'
@@ -13,8 +15,13 @@ function App() {
   const inputName = useRef();
   const inputPedido = useRef();
 
-  function addNewRequest() {
-    setUsers([...users,{ id: Math.random(), name: inputName.current.value, pedido: inputPedido.current.value }])
+  const addNewRequest = async() => {
+
+      const data = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value,})
+
+      console.log(data)
+
+    // setUsers([...users,{ id: Math.random(), name: inputName.current.value, pedido: inputPedido.current.value }])
   };
 
   function editPedido(userId) {
@@ -23,8 +30,8 @@ function App() {
   };
 
   function deletePedido(userId) {
-     const newDelete = users.filter(user => user.id !== userId)
-     setUsers(newDelete)
+    const newDelete = users.filter(user => user.id !== userId)
+    setUsers(newDelete)
   };
 
 
