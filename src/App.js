@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import axios from 'axios';
 
@@ -18,12 +18,27 @@ function App() {
   const addNewRequest = async () => {
 
     const { data: createPedido } = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value, })
-    
+
     setUsers([...users, createPedido])
 
-    const { data: mostrandoPedidos } = await axios.get("http://localhost:3001/users")
-    setUsers(mostrandoPedidos)
+
   };
+
+
+  // REACT HOOK => useEffect (Efeito Colateral)
+  // Quando a aplicação carrega o useEffect é chamado.
+  // Quando um Estado que está no Array de dependências do useEffect é alterado.(Ou seja, quando os dados de name e pedidos são alterados)
+  useEffect(() => {
+    async function buscarPedidos() {
+      const { data: mostrandoPedidos } = await axios.get("http://localhost:3001/users")
+      setUsers(mostrandoPedidos)
+    }
+    buscarPedidos()
+  }, [])
+
+
+
+
 
   function editPedido(userId) {
     // const newEdit = users.find(user => user.id === userId);
