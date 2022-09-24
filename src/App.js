@@ -9,14 +9,20 @@ import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User, 
 
 function App() {
   // Esse é um estado no React.  
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
+  const [pedido, setPedido] = useState();
+  const [name, setName] = useState();
+
 
   function addNewRequest() {
-    setUsers()
+    setUsers([{ id: Math.random(), name, pedido }])
   };
 
   function chanceInputPedido(event) {
-    console.log(event.target.value)
+    setPedido(event.target.value)
+  }
+  function changeInputName(event) {
+    setName(event.target.value)
   }
 
   return (
@@ -31,7 +37,7 @@ function App() {
         <Input onChange={chanceInputPedido} placeholder="Digite seu Pedido" />
 
         <InputLabel>Nome do Cliente</InputLabel>
-        <Input placeholder="Nome do Cliente" />
+        <Input onChange={changeInputName} placeholder="Nome do Cliente" />
 
         <Button onClick={addNewRequest}>Realizar Pedido</Button>
 
