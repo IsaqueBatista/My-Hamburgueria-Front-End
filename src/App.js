@@ -15,11 +15,14 @@ function App() {
   const inputName = useRef();
   const inputPedido = useRef();
 
-  const addNewRequest = async() => {
+  const addNewRequest = async () => {
 
-      const {data: newPedido} = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value,})
+    const { data: createPedido } = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value, })
+    
+    setUsers([...users, createPedido])
 
-    setUsers([...users, newPedido])
+    const { data: mostrandoPedidos } = await axios.get("http://localhost:3001/users")
+    setUsers(mostrandoPedidos)
   };
 
   function editPedido(userId) {
