@@ -24,10 +24,6 @@ function App() {
 
   };
 
-
-  // REACT HOOK => useEffect (Efeito Colateral)
-  // Quando a aplicação carrega o useEffect é chamado.
-  // Quando um Estado que está no Array de dependências do useEffect é alterado.(Ou seja, quando os dados de name e pedidos são alterados)
   useEffect(() => {
     async function buscarPedidos() {
       const { data: mostrandoPedidos } = await axios.get("http://localhost:3001/users")
@@ -37,15 +33,15 @@ function App() {
   }, [])
 
 
-
-
-
-  function editPedido(userId) {
+  async function editPedido(userId) {
     // const newEdit = users.find(user => user.id === userId);
     // setUsers(newEdit)
   };
 
-  function deletePedido(userId) {
+  // Antes disso os dados do Back-End não sofriam alterações, a partir de agora eles serão excluídos por definitivo.
+  async function deletePedido(userId) {
+    await axios.delete(`http://localhost:3001/users/${userId}`)
+
     const newDelete = users.filter(user => user.id !== userId)
     setUsers(newDelete)
   };
