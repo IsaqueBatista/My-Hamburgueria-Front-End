@@ -15,7 +15,7 @@ function App() {
 
 
   function addNewRequest() {
-    setUsers([{ id: Math.random(), name, pedido }])
+    setUsers([...users,{ id: Math.random(), name, pedido }])
   };
 
   function chanceInputPedido(event) {
