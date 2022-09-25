@@ -1,28 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from 'axios';
 
-import Hamburguer from '../../assets/hamburguer.png'
+import Embalagem from '../../assets/embalagem.svg'
 import Trash from '../../assets/trash.svg'
 import Pen from '../../assets/pen.png'
 
-import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User, DivPedidoAndName, DivTrashPen } from "../Home/styles";
+import { Container, Image, ContainerItens, H1, Button, User, DivPedidoAndName, DivTrashPen } from "./styles";
 
+ 
+function Requests() {
 
-function App() {
-  // Esse é um estado no React.  
   const [users, setUsers] = useState([]);
-  const inputName = useRef();
-  const inputPedido = useRef();
-
-  const addNewRequest = async () => {
-
-    const { data: createPedido } = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value, })
-
-    setUsers([...users, createPedido])
-
-
-  };
 
   useEffect(() => {
     async function buscarPedidos() {
@@ -48,19 +37,11 @@ function App() {
 
   return (
     <Container>
-      <Image alt="logo-hamburguer" src={Hamburguer} />
+      <Image alt="logo-embalagem" src={Embalagem} />
 
       <ContainerItens>
 
-        <H1>Faça seu Pedido!</H1>
-
-        <InputLabel>Pedido</InputLabel>
-        <Input ref={inputPedido} placeholder="Digite seu Pedido" />
-
-        <InputLabel>Nome do Cliente</InputLabel>
-        <Input ref={inputName} placeholder="Nome do Cliente" />
-
-        <Button onClick={addNewRequest}>Realizar Pedido</Button>
+        <H1>Pedidos</H1>
 
         <ul>
           {users.map((user) => (
@@ -81,9 +62,11 @@ function App() {
           ))}
         </ul>
 
+        <Button>Voltar</Button>
+
       </ContainerItens>
     </Container>
   );
 }
 
-export default App;
+export default Requests;

@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import Hamburguer from "../../assets/hamburguer.png";
-import Trash from "../../assets/trash.svg";
-import Embalagem from "../../assets/embalagem.svg";
 
 
 export const Container = styled.div`
@@ -45,36 +42,6 @@ export const H1 = styled.h1`
     color: #FFFFFF;
 
     margin-bottom: 30px;
-`;
-
-export const InputLabel = styled.p`
-    font-style: normal;
-    font-size: 14px;
-    /* line-height: 22px; */
-
-    letter-spacing: -0.408px;
-    color: #EEEEEE; 
-    
-    margin: 0px 0px 2px;
-`;
-
-export const Input = styled.input`
-
-    padding-left: 20px;
-    width: 250px;    
-    height: 44px;
-
-    background:#dbcdb9;
-    border-color: transparent;
-    border-radius: 4px;
-
-    outline: transparent;
-        
-    ::placeholder{ 
-        color: #363636; 
-    } 
-    
-    margin-bottom: 20px;
 `;
 
 export const Button = styled.button`
