@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 
 import axios from 'axios';
 
-import Hamburguer from './assets/hamburguer.png'
-import Trash from './assets/trash.svg'
-import Pen from './assets/pen.png'
+import Hamburguer from '../../assets/hamburguer.png'
+import Trash from '../../assets/trash.svg'
+import Pen from '../../assets/pen.png'
 
-import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User, DivPedidoAndName, DivTrashPen } from "./styles";
+import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, User, DivPedidoAndName, DivTrashPen } from "../Home/styles";
 
 
 function App() {
@@ -38,7 +38,6 @@ function App() {
     // setUsers(newEdit)
   };
 
-  // Antes disso os dados do Back-End não sofriam alterações, a partir de agora eles serão excluídos por definitivo.
   async function deletePedido(userId) {
     await axios.delete(`http://localhost:3001/users/${userId}`)
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Hamburguer from "./assets/hamburguer.png";
-import Trash from "./assets/trash.svg";
-import Embalagem from "./assets/embalagem.svg";
+import Hamburguer from "../../assets/hamburguer.png";
+import Trash from "../../assets/trash.svg";
+import Embalagem from "../../assets/embalagem.svg";
 
 
 export const Container = styled.div`
