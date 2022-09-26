@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Hamburguer from "../../assets/hamburguer.png";
-import Trash from "../../assets/trash.svg";
-import Embalagem from "../../assets/embalagem.svg";
+import {Link} from 'react-router-dom';
+
 
 
 export const Container = styled.div`
@@ -75,9 +74,10 @@ export const Input = styled.input`
     } 
     
     margin-bottom: 20px;
+    text-overflow:ellipsis
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     background-color: #AE0000;
     
     color: white;
@@ -96,6 +96,10 @@ export const Button = styled.button`
     font-size: 15px;
     align-items: center;
     cursor: pointer;
+
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
 
     &:hover{
        opacity: 0.8;

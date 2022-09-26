@@ -42,6 +42,7 @@ function Requests() {
       <ContainerItens>
 
         <H1>Pedidos</H1>
+          <Button to = "/">Voltar</Button>
 
         <ul>
           {users.map((user) => (
@@ -62,7 +63,6 @@ function Requests() {
           ))}
         </ul>
 
-        <Button>Voltar</Button>
 
       </ContainerItens>
     </Container>

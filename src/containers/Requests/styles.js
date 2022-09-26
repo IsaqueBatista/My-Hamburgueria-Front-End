@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Link } from 'react-router-dom'
+
 
 export const Container = styled.div`
     background-image: linear-gradient( #601D0D ,#20100C);
@@ -31,6 +33,7 @@ export const ContainerItens = styled.div`
     display: flex;
     flex-direction: column;
     min-width: 250px;
+    word-break: break-all;
 `;
 
 export const H1 = styled.h1`
@@ -44,7 +47,7 @@ export const H1 = styled.h1`
     margin-bottom: 30px;
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     background-color: #AE0000;
     
     color: white;
@@ -63,6 +66,11 @@ export const Button = styled.button`
     font-size: 15px;
     align-items: center;
     cursor: pointer;
+
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-self: center;
 
     &:hover{
        opacity: 0.8;
@@ -97,6 +105,14 @@ export const DivPedidoAndName = styled.div`
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
+
+    p{
+        margin-left: 1%;
+        margin-right: 3%;
+        
+        margin-bottom: 2%;
+      
+    }
 `;
 
 export const DivTrashPen = styled.div`
