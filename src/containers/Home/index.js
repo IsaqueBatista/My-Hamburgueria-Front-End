@@ -11,14 +11,18 @@ import { Container, Image, ContainerItens, H1, InputLabel, Input, Button } from 
 function App() {
 
   const [users, setUsers] = useState([]);
-  const history = useHistory() 
+  const history = useHistory()
 
   const inputName = useRef();
   const inputPedido = useRef();
 
   const addNewRequest = async () => {
 
-    const { data: createPedido } = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value, })
+    const { data: createPedido } = await axios.post("http://localhost:3001/pedidos",
+      {
+        pedido: inputPedido.current.value,
+        name: inputName.current.value,
+      })
 
     setUsers([...users, createPedido])
 

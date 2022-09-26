@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
@@ -8,32 +8,48 @@ import Trash from '../../assets/trash.svg'
 import Pen from '../../assets/pen.png'
 
 import { Container, Image, ContainerItens, H1, Button, User, DivPedidoAndName, DivTrashPen } from "./styles";
+// import EditPedidos from '../../components/EditPedidos'
 
- 
+
 function Requests() {
 
-  const [users, setUsers] = useState([]);
-  const history = useHistory() 
+  const [pedidos, setPedidos] = useState([]);
+  const history = useHistory()
+
 
   useEffect(() => {
     async function buscarPedidos() {
-      const { data: mostrandoPedidos } = await axios.get("http://localhost:3001/users")
-      setUsers(mostrandoPedidos)
+      const { data: mostrandoPedidos } = await axios.get("http://localhost:3001/pedidos")
+      setPedidos(mostrandoPedidos)
     }
     buscarPedidos()
   }, [])
 
 
-  async function editPedido(userId) {
-    // const newEdit = users.find(user => user.id === userId);
-    // setUsers(newEdit)
-  };
+
+
+  const editPedido = async (userId) => {
+    const { data: editarPedido } = await axios.put(`http://localhost:3001/pedidos/${userId}`,
+      {
+        pedido: inputPedido.current.value,
+        name: inputName.current.value,
+      })
+    setPedidos([...pedidos, editarPedido])
+    history.push('/pedidos')
+  }
+
+
+
+
+
 
   async function deletePedido(userId) {
-    await axios.delete(`http://localhost:3001/users/${userId}`)
+    await axios.delete(`http://localhost:3001/pedidos/${userId}`)
 
-    const newDelete = users.filter(user => user.id !== userId)
-    setUsers(newDelete)
+    const newDelete = pedidos.filter(user => user.id !== userId)
+
+
+    setPedidos(newDelete)
   };
 
   function goBackPage() {
@@ -48,10 +64,10 @@ function Requests() {
       <ContainerItens>
 
         <H1>Pedidos</H1>
-          <Button onClick={goBackPage}>Voltar</Button>
+        <Button onClick={goBackPage}>Voltar</Button>
 
         <ul>
-          {users.map((user) => (
+          {pedidos.map((user) => (
 
             <User key={user.id}>
 
