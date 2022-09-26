@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
-
 
 
 export const Container = styled.div`
@@ -77,7 +75,7 @@ export const Input = styled.input`
     text-overflow:ellipsis
 `;
 
-export const Button = styled(Link)`
+export const Button = styled.button`
     background-color: #AE0000;
     
     color: white;

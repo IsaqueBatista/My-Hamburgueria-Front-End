@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
 
@@ -10,6 +11,8 @@ import { Container, Image, ContainerItens, H1, InputLabel, Input, Button } from 
 function App() {
 
   const [users, setUsers] = useState([]);
+  const history = useHistory() 
+
   const inputName = useRef();
   const inputPedido = useRef();
 
@@ -18,6 +21,8 @@ function App() {
     const { data: createPedido } = await axios.post("http://localhost:3001/users", { pedido: inputPedido.current.value, name: inputName.current.value, })
 
     setUsers([...users, createPedido])
+
+    history.push('/pedidos')
 
   };
 
@@ -36,7 +41,7 @@ function App() {
         <InputLabel>Nome do Cliente</InputLabel>
         <Input ref={inputName} placeholder="Nome do Cliente" />
 
-        <Button to = "/pedidos" onClick={addNewRequest}>Realizar Pedido</Button>
+        <Button onClick={addNewRequest}>Realizar Pedido</Button>
 
       </ContainerItens>
     </Container>

@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { Link } from 'react-router-dom'
-
 
 export const Container = styled.div`
     background-image: linear-gradient( #601D0D ,#20100C);
@@ -47,7 +45,7 @@ export const H1 = styled.h1`
     margin-bottom: 30px;
 `;
 
-export const Button = styled(Link)`
+export const Button = styled.button`
     background-color: #AE0000;
     
     color: white;
@@ -107,22 +105,21 @@ export const DivPedidoAndName = styled.div`
     line-height: 21px;
 
     p{
-        margin-left: 1%;
-        margin-right: 3%;
-        
-        margin-bottom: 2%;
-      
+        margin-bottom: 3%;
     }
 `;
 
 export const DivTrashPen = styled.div`
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+
 
     button{
         border: none;
         cursor: pointer;
         background: none;
-    }
+     } 
 `;
 

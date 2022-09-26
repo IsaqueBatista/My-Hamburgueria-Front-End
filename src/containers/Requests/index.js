@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import axios from 'axios';
 
@@ -12,6 +13,7 @@ import { Container, Image, ContainerItens, H1, Button, User, DivPedidoAndName, D
 function Requests() {
 
   const [users, setUsers] = useState([]);
+  const history = useHistory() 
 
   useEffect(() => {
     async function buscarPedidos() {
@@ -34,6 +36,10 @@ function Requests() {
     setUsers(newDelete)
   };
 
+  function goBackPage() {
+    history.push('/')
+  }
+
 
   return (
     <Container>
@@ -42,7 +48,7 @@ function Requests() {
       <ContainerItens>
 
         <H1>Pedidos</H1>
-          <Button to = "/">Voltar</Button>
+          <Button onClick={goBackPage}>Voltar</Button>
 
         <ul>
           {users.map((user) => (
