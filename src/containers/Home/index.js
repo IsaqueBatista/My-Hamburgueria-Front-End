@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import Hamburguer from '../../assets/hamburguer.png'
 
-import { Container, Image, ContainerItens, H1, InputLabel, Input, Button } from "./styles";
+import { Container, Image, ContainerItens, H1, InputLabel, Input, Button, ButtonRequests } from "./styles";
 
 
 function App() {
@@ -29,6 +29,9 @@ function App() {
     history.push('/pedidos')
 
   };
+  function goPageRequests() {
+    history.push("/pedidos");
+  }
 
 
   return (
@@ -46,6 +49,7 @@ function App() {
         <Input ref={inputName} placeholder="Nome do Cliente" />
 
         <Button onClick={addNewRequest}>Realizar Pedido</Button>
+        <ButtonRequests onClick={goPageRequests}>Avançar</ButtonRequests>
 
       </ContainerItens>
     </Container>

@@ -75,6 +75,40 @@ export const Input = styled.input`
     text-overflow:ellipsis
 `;
 
+export const ButtonRequests = styled.button`
+
+    margin-top: 15px;
+
+    background-color: #AE0000;
+    
+    color: white;
+    width: 180px;
+    height: 50px;
+
+    border: none;
+    
+    border-radius: 4px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    align-items: center;
+    cursor: pointer;
+
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-self: center;
+
+    &:hover{
+       opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+
+`
+
 export const Button = styled.button`
     background-color: #AE0000;
     
