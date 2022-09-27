@@ -1,11 +1,5 @@
 <h1>Projeto Hamburgueria</h1>
 
-<br>
-<br>
-
-<img src="./src/assets/hamburgueria.gif" alt="page-home">
-
-<br><br>
 
 <h3>Home</h3>
 <img src="./src/assets/home.png" alt="page-home">
@@ -20,11 +14,9 @@
 <h3>Edit Requests</h3>
 <img src="./src/assets/editRequest.png" alt="edit-request">
 
-<br>
+<br><br>
 
 > In it you can register, edit and delete one or more requests. 
-
-<br>
 
 <p> - Project made with React.</p>
 
@@ -38,7 +30,7 @@ We thank the following people who contributed to this project:
   <tr>
       <td align="center">
           <a href="#">
-                <img src="./src/assets/zyro-image.png" width="100px;" alt="Foto do Isaque Batista no GitHub"/><br>
+                <img src="./src/assets/Photo-Isaque.png" width="100px;" alt="Fot Isaque Batista GitHub"/><br>
                 <sub>
                 <b>Isaque Batista</b>
                 </sub>
